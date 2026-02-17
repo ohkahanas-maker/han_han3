@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ห้วยแถลงวิทยาคมเว็บนำเสนอต้นไม้</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: #0b0b0b;
+      color: #f5f5f5;
+    }
+    header {
+      background: linear-gradient(135deg, #ff6a00, #111);
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      color: #ffae42;
+    }
+    header p {
+      margin-top: 0.5rem;
+      color: #ddd;
+    }
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .filters button {
+      background: #ff6a00;
+      border: none;
+      color: #000;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .filters button:hover {
+      background: #ff8c1a;
+      transform: scale(1.05);
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(5,1fr); 
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .card {
+      background: #141414;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 1rem;
+    }
+    .card-content h3 {
+      margin: 0 0 0.5rem 0;
+      color: #ffae42;
+    }
+    .card-content p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      color: #777;
+      font-size: 0.85rem;
+
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+  
+  <div class="header-logo">
+    <img src="images/favicon.png" alt="โลโก้โรงเรียน">
+    <link rel="stylesheet" href="styles.css">
+  
+
+    
+  </div>
+
+  <h1>เว็บนำเสนอพรรณต้นในบริเวณอาคาร1และ2</h1>
+  <p>เลือกดูต้นไม้ตามประเภท</p>
+</header>
+
+</header>
+
+
+
+  <div class="filters">
+    <button onclick="filterTrees('all')">ทั้งหมด</button>
+    <button onclick="filterTrees('ไม้ดอก')">ไม้ดอก</button>
+    <button onclick="filterTrees('ไม้ประดับ')">ไม้ประดับ</button>
+    <button onclick="filterTrees('ไม้ยืนต้น')">ไม้ยืนต้น</button>
+  </div>
+
+  <section class="gallery">
+    <div class="card" data-type="ไม้ประดับ">
+      <a href="rose.html" style="text-decoration:none; color:inherit;">
+        <img src="images/ต้นผักปลังแดง.jpg" alt="ไม้ประดับ" />
+        <div class="card-content">
+          <h3>ต้นผักปลังแดง</h3>
+          <p>ลักษณะเด่น: เถาเลื้อย ใบใหญ่ สีเขียว ดอกเล็กสีชมพูอมม่วงเรียงเป็นช่อใบรูปหัวใจ ขนาดค่อนข้างใหญ่</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="card" data-type="ไม้ประดับ">
+      <img src="images/_DSC0074_LqoYGr.jpg"> alt="ไม้ประดับ" />
+      <div class="card-content">
+        <h3>เฟื่องฟ้า</h3>
+        <p>ถิ่นกำเนิด: อเมริกาใต้ลักษณะเด่น: ดอกสีชมพู–ม่วงสด</p>
+      </div>
+    </div>
+
+    <div class="card" data-type="ไม้ยืนต้น">
+      <img src="images/_DSC0091_FGKgzm.jpg" alt="ต้นไม้ใหญ่" />
+      <div class="card-content">
+        <h3>ต้นลีลาวดี</h3>
+        <p>ถิ่นกำเนิด: อเมริกากลาง–อเมริกาใต้ลักษณะของต้นเป็น ไม้ยืนต้นขนาดเล็ก–กลางลำต้นสีเทา แตกกิ่งต่ำ</p>
+      </div>
+    </div>
+
+    <div class="card" data-type="ไม้ประดับ">
+      <img src="images/หมากผู้หมากเมีย.jpg" alt="หมากผู้หมากเมีย" />
+      <div class="card-content">
+        <h3>หมากผู้หมากเมีย</h3>
+        <p>ลักษณะเด่นใบเรียวยาว ปลายแหลมสีแดงเข้ม แดงม่วง หรือแดงอมชมพูลำต้นเป็นข้อ ๆ คล้ายต้นปาล์มขนาดเล็กนิยมปลูกเป็นกอแน่น ๆ ตกแต่งส</p>
+      </div>
+    </div>
+
+    <div class="card" data-type="ไม้ประดับ">
+      <img src="images/ปาล์มไผ่.jpg" alt="ปาล์มไผ่" />
+      <div class="card-content">
+        <h3>ปาล์มไผ่</h3>
+        <p>ถิ่นกำเนิด: อเมริกากลาง ลักษณะของต้น ใบเป็นแฉกยาว โค้งอ่อน ดูพลิ้วสูงประมาณ 1.5 ถึง 3 เมตรชอบแสงรำไร ไม่ชอบแดดจัดโตช้า แต่ทนและดูแลง่าย</p>
+      </div>
+    </div>
+
+     <div class="card" data-type="ไม้ดอก">
+      <img src="images/เทียนฝรั่ง.jpg" alt="เทียนฝรั่ง" />
+      <div class="card-content">
+        <h3>เทียนฝรั่ง</h3>
+        <p>ลักษณะเด่นดอกเล็กสีม่วงชมพู ออกดอกตลอดปีกลีบดอก 6 กลีบเล็ก ๆใบเล็กเรียว สีเขียวสดทรงพุ่มแน่น แตกกิ่งก้านเยอะ</p>
+      </div>
+    </div>
+
+    <div class="card" data-type="ไม้ประดับ">
+      <img src="images/ฟิร์นข้าหลวงหลังลาย.jpg" alt="ฟิร์นข้าหลวงหลังลาย" />
+      <div class="card-content">
+        <h3>ฟิร์นข้าหลวงหลังลาย</h3>
+        <p>ลักษณะเด่นใบใหญ่ กว้าง ยาว โค้งออกเป็นวงคล้ายรังนกสีเขียวสด มีเส้นกลางใบชัดขอบใบหยักเล็กน้อยใบเรียงตัวเป็นกอจากจุดกลางต้น</p>
+      </div>
+    </div>
+
+    <div class="card" data-type="ไม้ประดับ">
+      <img src="images/อื้องหมายนา.jpg" alt="อื้องหมายนา" />
+      <div class="card-content">
+        <h3>อื้องหมายนา</h3>
+        <p>ลักษณะเด่นกล้วยไม้ดิน (ปลูกในดิน ไม่ได้เกาะต้นไม้)ดอกสีม่วง ชมพู หรือขาวกลีบดอกกว้าง มีปากดอกเด่นตรงกลางใบยาวเรียว คล้ายใบปาล์มเล็ก ๆ</p>
+      </div>
+    </div>
+
+    <div class="card" data-type="ไม้ประดับ">
+      <img src="images/ต้นลิ้นกระบือ.jpg" alt="ต้นลิ้นกระบือ" />
+      <div class="card-content">
+        <h3>ต้นลิ้นกระบือ</h3>
+        <p>ลักษณะเด่นใบรูปรี ปลายแหลมด้านบนสีเขียวเข้มเป็นมันด้านล่างสีแดงเข้ม/แดงเลือดหมู (เด่นมาก)พุ่มแน่น ตัดแต่งเป็นทรงพุ่มได้</p>
+      </div>
+    </div>
+
+    <div class="card" data-type="ไม้ประดับ">
+      <img src="images/เฟื่องฟ้า.jpg" alt="เฟื่องฟ้า" />
+      <div class="card-content">
+        <h3>เฟื่องฟ้า</h3>
+        <p>ลักษณะเด่นสีชมพู/ม่วงที่เห็นไม่ใช่กลีบดอกจริง แต่เป็น ใบประดับดอกจริงจะเป็นดอกเล็ก ๆ สีขาวอยู่ตรงกลางเป็นไม้พุ่มหรือไม้เลื้อย มีหนามตามกิ่งออกดอกเป็นช่อแน่น สีสดสะดุดตา</p>
+      </div>
+    </div>
+
+    <div class="card" data-type="ไม้ประดับ">
+      <img src="images/กระบองเri=.jpg" alt="กระบองเพรช" />
+      <div class="card-content">
+        <h3>กระบองเพรช</h3>
+        <p>ลักษณะเด่นลำต้นตั้งตรง ทรงเสายาวมีสันเหลี่ยมชัด (เห็นเป็นร่องตามแนวตั้ง)มีหนามเล็ก ๆ ตามสันสีเขียวเข้มโตได้สูงหลายเมตร</p>
+      </div>
+    </div>
+
+     <div class="card" data-type="ไม้ยืนต้น">
+      <img src="images/ไทรกร่าง.jpg" alt="ไทรกร่าง" />
+      <div class="card-content">
+        <h3>ไทรกร่าง</h3>
+        <p>ลักษณะเด่นเป็น ไม้ยืนต้นขนาดใหญ่ลำต้นสูง แตกกิ่งกว้าง ให้ร่มเงาดีใบรูปรี ปลายแหลม สีเขียวเป็นมันมีรากอากาศห้อยลงมาเมื่อโตมากผลเล็ก ๆ กลม คล้ายมะเดื่อ</p>
+      </div>
+    </div>
+
+
+
+    <div class="card" data-type="ไม้ประดับ">
+      <img src="images/ต้นกนกลายไทย.jpg" alt="ต้นกนกลายไทย" />
+      <div class="card-content">
+        <h3>ต้นกนกลายไทย</h3>
+        <p>ลักษณะเด่นเป็นไม้พุ่มขนาดเล็ก–กลางบมีสีสันหลากหลาย เช่น เขียว เหลือง แดง ส้มใบหยัก โค้ง งอ คล้ายลายไทยลวดลายเด่น ใช้ตกแต่งสวนสวยงาม</p>
+      </div>
+    </div>
+
+<div class="card" data-type="ไม้ยืนต้น">
+      <img src="images/ต้นไทร.jpg" alt="ต้นไทร" />
+      <div class="card-content">
+        <h3>ต้นไทร</h3>
+        <p>ลักษณะทั่วไปเป็นไม้ยืนต้นขนาดกลางถึงใหญ่ลำต้นแข็งแรง แตกกิ่งกว้างใบสีเขียว รูปรีหรือรูปไข่บางชนิดมี รากอากาศห้อยลงมาผลเล็ก ๆ กลม เรียกว่า “ลูกไทร”</p>
+      </div>
+    </div>
+
+    <div class="card" data-type="ไม้ดอก">
+      <img src="images/บัว.jpg" alt="ใบบัว" />
+      <div class="card-content">
+        <h3>ใบบัว</h3>
+        <p>กษณะของใบบัวใบกลมใหญ่ สีเขียวผิวใบลื่น น้ำไม่เกาะ (น้ำจะกลิ้งเป็นหยด)ก้านใบยาว ชูขึ้นเหนือผิวน้ำ (บัวหลวง)หรือบางชนิดใบลอยบนผิวน้ำ (บัวสาย)</p>
+      </div>
+    </div>
+
+    <div class="card" data-type="ไม้ดอก">
+      <img src="images/ต้นทองอุไร.jpg" alt="ต้นทองอุไร" />
+      <div class="card-content">
+        <h3>ต้นทองอุไร</h3>
+        <p>ลักษณะทั่วไปเป็นไม้พุ่มขนาดกลาง สูงประมาณ 2–4 เมตรใบประกอบ สีเขียวเข้ม ขอบใบหยักเล็กน้อยดอกสีเหลืองสด ออกเป็นช่อออกดอกเกือบตลอดปี โดยเฉพาะช่วงแดดจัด</p>
+      </div>
+    </div>
+
+    <div class="card" data-type="ไม้ดอก">
+      <img src="images/" alt="ฟิโลเดนดรอน เบอร์มาร์คร" />
+      <div class="card-content">
+        <h3>ฟิโลเดนดรอน เบอร์มาร์ค</h3>
+        <p>ลักษณะเด่นใบเรียวยาว สีเขียวเข้ม เป็นมันใบโค้งสวย ดูทันสมัยเป็นไม้เลื้อยหรือเลื้อยกึ่งพุ่มโตค่อนข้างเร็ว</p>
+      </div>
+    </div>
+
+    
+
+
+
+
+  </section>
+
+  <footer>
+    ห้วยแถลงพิทยาคม
+  </footer>
+
+  <script>
+    function filterTrees(type) {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (type === 'all' || card.dataset.type === type) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

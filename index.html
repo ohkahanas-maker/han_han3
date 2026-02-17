@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>หน้าแรก - ห้วยแถลงวิทยาคมเว็บนำเสนอต้นไม้</title>
+<a href="itrees.html">
+ 
+
+
+ <link rel="icon" type="image/png" href="favicon.png">
+
+
+
+<style>
+body{
+  margin:0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: radial-gradient(circle at top, #1a1a1a, #000000);
+  color:white;
+  overflow:hidden;
+}
+
+/* พื้นหลังเรืองแสง */
+body::before{
+  content:"";
+  position:absolute;
+  width:600px;
+  height:600px;
+  background: radial-gradient(circle, rgba(255,106,0,0.4), transparent 70%);
+  top:-200px;
+  left:-200px;
+  animation: glowMove 8s infinite alternate ease-in-out;
+  z-index:0;
+}
+
+@keyframes glowMove{
+  from{transform: translate(0,0);}
+  to{transform: translate(200px,150px);}
+}
+
+/* กล่องกลาง */
+.home-box{
+  position:relative;
+  z-index:2;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  backdrop-filter: blur(15px);
+  background: rgba(255,255,255,0.05);
+  border:1px solid rgba(255,106,0,0.3);
+  box-shadow:0 0 40px rgba(255,106,0,0.3);
+}
+
+/* หัวข้อ */
+h1{
+  font-size:2.7rem;
+  color:#ffae42;
+  text-shadow:0 0 15px rgba(255,174,66,0.8);
+}
+
+p{
+  color:#ccc;
+}
+
+/* ปุ่ม */
+.enter-btn{
+  margin-top:2rem;
+  padding:0.9rem 2.5rem;
+  border:none;
+  border-radius:50px;
+  font-weight:bold;
+  font-size:1rem;
+  cursor:pointer;
+  background:#ff6a00;
+  color:black;
+  transition:0.3s;
+  box-shadow:0 0 20px rgba(255,106,0,0.6);
+}
+
+.enter-btn:hover{
+  transform:scale(1.15);
+  background:#ff8c1a;
+  box-shadow:0 0 40px rgba(255,140,26,1);
+}
+
+/* ดาวตก */
+.shooting-star{
+  position:absolute;
+  top:-50px;
+  width:3px;
+  height:120px;
+  background: linear-gradient(-45deg, white, rgba(255,255,255,0));
+  opacity:0;
+  transform: rotate(45deg);
+  animation: shoot 3s linear infinite;
+}
+
+@keyframes shoot{
+  0%{
+    transform: translateX(0) translateY(0) rotate(45deg);
+    opacity:1;
+  }
+  70%{
+    opacity:1;
+  }
+  100%{
+    transform: translateX(800px) translateY(800px) rotate(45deg);
+    opacity:0;
+  }
+}
+
+/* เอฟเฟกต์ออก */
+.fade-out{
+  animation: fadeOut 0.8s forwards;
+}
+
+@keyframes fadeOut{
+  to{opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="home-box">
+    <img src="images/favicon.png" class="logo">
+  <h1>🌿 พรรณไม้บริเวณอาคาร 1 และ 2</h1>
+  <p>คลิกปุ่มด้านล่างเพื่อเข้าสู่เว็บไซต์</p>
+  <button class="enter-btn" onclick="goToPage()">เข้าสู่เว็บไซต์</button>
+</div>
+
+<style>
+/* ดาวตก */
+.shooting-star{
+  position:absolute;
+  top:-100px;
+  width:4px;
+  height:250px; /* หางยาวขึ้น */
+  background: linear-gradient(-45deg, 
+              rgba(255,255,255,1) 0%, 
+              rgba(255,200,150,0.9) 20%, 
+              rgba(255,120,0,0.6) 40%, 
+              rgba(255,120,0,0) 100%);
+  filter: drop-shadow(0 0 10px white)
+          drop-shadow(0 0 20px orange);
+  opacity:0;
+  transform: rotate(45deg);
+  animation: shoot 2.5s linear forwards;
+}
+
+/* อนุภาคประกายไฟ */
+.spark{
+  position:absolute;
+  width:4px;
+  height:4px;
+  background: radial-gradient(circle, #fff, orange);
+  border-radius:50%;
+  pointer-events:none;
+  animation: sparkFade 1s linear forwards;
+}
+
+@keyframes shoot{
+  0%{
+    transform: translateX(0) translateY(0) rotate(45deg);
+    opacity:1;
+  }
+  100%{
+    transform: translateX(1000px) translateY(1000px) rotate(45deg);
+    opacity:0;
+  }
+}
+
+@keyframes sparkFade{
+  from{
+    opacity:1;
+    transform: scale(1);
+  }
+  to{
+    opacity:0;
+    transform: scale(0.2);
+  }
+}
+</style>
+
+<script>
+
+/* สร้างดาวตก */
+function createStar(){
+  const star = document.createElement("div");
+  star.classList.add("shooting-star");
+
+  star.style.left = Math.random() * window.innerWidth + "px";
+  star.style.animationDuration = (2 + Math.random()*1.5) + "s";
+
+  document.body.appendChild(star);
+
+  /* สร้างประกายไฟตามหลัง */
+  let sparkInterval = setInterval(()=>{
+    const spark = document.createElement("div");
+    spark.classList.add("spark");
+
+    spark.style.left = (star.offsetLeft + Math.random()*20) + "px";
+    spark.style.top = (star.offsetTop + Math.random()*20) + "px";
+
+    document.body.appendChild(spark);
+
+    setTimeout(()=> spark.remove(),1000);
+
+  },80);
+
+  setTimeout(()=>{
+    clearInterval(sparkInterval);
+    star.remove();
+  },2500);
+}
+
+/* ปล่อยดาวตกทุก 2 วิ */
+setInterval(createStar,1000);
+
+
+
+
+/* เปลี่ยนหน้าแบบเฟด */
+function goToPage(){
+  document.body.classList.add("fade-out");
+  setTimeout(()=>{
+    window.location.href="trees.html"; 
+  },800);
+}
+
+</script>
+
+
